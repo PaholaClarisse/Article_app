@@ -9,7 +9,7 @@ from sqlalchemy import pool
 from app.modeles import Base
 from alembic import context
 from urllib.parse import quote_plus
-
+from dotenv import load_dotenv
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -18,10 +18,15 @@ fileConfig(config.config_file_name)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-mdp = quote_plus("magne33PA@")
+load_dotenv()  # lit le fichier .env
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME")
 
 # REMPLACE 'ton_mot_de_passe' par le vrai mot de passe de ton MySQL
-SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://medecin:{mdp}@127.0.0.1:3306/article_app"
+SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 
 # add your model's MetaData object here
 # for 'autogenerate' support
