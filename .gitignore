@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Alembic
+alembic/versions/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Other
+*.egg-info/
